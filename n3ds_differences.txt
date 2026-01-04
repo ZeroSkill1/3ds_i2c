@@ -1,0 +1,15 @@
+n3ds differences
+- stack size for each ipc thread: 0x800 (compared to 0x400) [done]
+- input static buffers are 0x200 in size (compared to 0x10) [done]
+	- also alters the usable space for ipcs to that much [NOT done yet]
+- output static buffers are also 0x200 in size (compared to 0x20) [done]
+	- also alters the usable space for ipcs to that much [NOT done yet]
+- services 1, 4, and 8 (i2c::CAM, i2c::HID, i2c::QTM) use core3 (processorId = 3 in createThread) [done]
+- arm11 interrupts 0x54 (bus 0 for internal cam and qtm) and 0x5C (bus 2 c-stick, zl/zr) are bound in a thread that runs on core3 [not needed?]
+- i2c::NFC gets access to device 15 [done]
+- i2c::QTM gets access to device 16 [done]
+- has commands 0x13, 0x14, 0x15 implemented [done]
+   - 0x13 does a StartRead(), CompleteFinalRead() without a SelectDevice()
+   - 0x14 does a StartWrite(), PerformWrite() for each byte in given buffer without a SelectDevice()
+   - 0x25 does a StartRead(), [ ReadIntermediate() for each byte ], CompleteFinalRead() for last byte, without a SelectDevice()
+

@@ -1,0 +1,106 @@
+BasicInfo:
+  Title                   : i2c
+  CompanyCode             : "00"
+  ProductCode             : CTR-X-I2C
+  ContentType             : Application
+  Logo                    : None
+
+TitleInfo:
+  UniqueId                : 0x1E
+  Category                : Base
+  Version                 : 2
+
+Option:
+  UseOnSD                 : false
+  FreeProductCode         : true # Removes limitations on ProductCode
+  MediaFootPadding        : false # If true CCI files are created with padding
+  EnableCrypt             : true # Enables encryption for NCCH and CIA
+  EnableCompress          : true # Compresses exefs code
+  UseKtrProgramId         : true
+
+AccessControlInfo:
+  IdealProcessor                : 1
+  AffinityMask                  : 2
+
+  Priority                      : -12
+
+  DisableDebug                  : true
+  EnableForceDebug              : false
+  CanWriteSharedPage            : false
+  CanUsePrivilegedPriority      : false
+  CanUseNonAlphabetAndNumber    : false
+  PermitMainFunctionArgument    : false
+  CanAccessCore2                : true
+  CanShareDeviceMemory          : false
+  RunnableOnSleep               : true
+  SpecialMemoryArrange          : false
+  ResourceLimitCategory         : Other
+
+  IORegisterMapping:
+    - 0x1EC61000
+    - 0x1EC44000
+    - 0x1EC48000
+
+  CoreVersion                   : 2
+  DescVersion                   : 2
+
+  MemoryType                    : Base      # Application / System / Base
+  HandleTableSize: 0x0
+
+  SystemSaveDataId1: 0
+
+  SystemCallAccess:
+    ControlMemory: 0x01
+    QueryMemory: 0x02
+    ExitProcess: 0x03
+    CreateThread: 0x08
+    ExitThread: 0x09
+    SleepThread: 0x0A
+    CreateMutex: 0x13
+    ReleaseMutex: 0x14
+    CreateSemaphore: 0x15
+    ReleaseSemaphore: 0x16
+    CreateEvent: 0x17
+    SignalEvent: 0x18
+    ClearEvent: 0x19
+    CreateTimer: 0x1A
+    SetTimer: 0x1B
+    CancelTimer: 0x1C
+    ClearTimer: 0x1D
+    CreateMemoryBlock: 0x1E
+    MapMemoryBlock: 0x1F
+    UnmapMemoryBlock: 0x20
+    CreateAddressArbiter: 0x21
+    ArbitrateAddress: 0x22
+    CloseHandle: 0x23
+    WaitSynchronization: 0x24
+    WaitSynchronizationN: 0x25
+    GetSystemTick: 0x28
+    GetHandleInfo: 0x29
+    GetSystemInfo: 0x2A
+    GetProcessInfo: 0x2B
+    ConnectToPort: 0x2D
+    SendSyncRequest: 0x32
+    GetProcessId: 0x35
+    GetProcessIdOfThread: 0x36
+    GetThreadId: 0x37
+    GetResourceLimit: 0x38
+    GetResourceLimitLimitValues: 0x39
+    GetResourceLimitCurrentValues: 0x3A
+    Break: 0x3C
+    OutputDebugString: 0x3D
+    AcceptSession: 0x4A
+    ReplyAndReceive: 0x4F
+    BindInterrupt: 0x50
+    UnbindInterrupt: 0x51
+    KernelSetState: 0x7C
+
+  InterruptNumbers:
+    - 0x5C
+    - 0x55
+    - 0x54
+  ServiceAccessControl:
+
+SystemControlInfo:
+  RemasterVersion: 0
+  StackSize: 0x1000
