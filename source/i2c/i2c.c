@@ -50,7 +50,8 @@ bool I2C_CheckDeviceAccess(I2C_SessionType session_type, u8 devid) {
 	case I2C_SESSION_TYPE_DEB:
 		return devid == 7 || devid == 8;
 	case I2C_SESSION_TYPE_HID:
-		return devid == 9 || devid == 10 || devid == 11 || devid == 12;
+		return false; // disable all bus2 devices
+		//return devid == 9 || devid == 10 || devid == 11 || devid == 12;
 	case I2C_SESSION_TYPE_IR:
 #ifdef N3DS
 		return devid == 13 || devid == 17;
