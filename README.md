@@ -1,3 +1,6 @@
+# Note
+This version of 3ds_i2c will **disable all bus2 devices (Gyroscope, IR transciever)** and is only meant for devices that have a faulty gyroscope.
+
 # About
 
 An open-source reimplementation of the I2C system module.
